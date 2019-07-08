@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <title>JQUERY interactive example</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+  <link href="./css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">JQUERY example</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- какие-то элементы меню -->
+      </div>
+    </div>
+  </nav>
+  <br/>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Cats</h1>
+    </div>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Имя</th>
+        <th>Порода</th>
+        <th>Возраст</th>
+        <th>Пол</th>
+        <th>
+          <button class="btn btn-primary" onClick="addCat();">Add cat</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="cats_table_body"></tbody>
+  </table>
+  
+</div>
+
+<div class="modal fade" id="ownerform" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cat owner</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+          
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Phone:</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="ownerform_phone" value="">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Name:</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="ownerform_name" value="">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">City:</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="ownerform_city" value="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editform" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cat</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            
+            <h3>Cat</h3>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="editform_name" value="">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Breed:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="editform_breed" value="">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Age:</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="editform_age" value="">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Sex:</label>
+              <div class="col-sm-10">
+                <select class="form-control" id="editform_sex">
+                  <option value="male">male</option>
+                  <option value="female">female</option>
+                  <option value="no">not sure</option>
+                </select>
+              </div>
+            </div>
+          
+          </div>
+          <div class="col-sm-6">
+            
+            <h3>Owner</h3>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Phone:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="editform_phone" value="">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="editform_owner_name" value="">
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">City:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="editform_city" value="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onClick="saveEditClick()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="./js/main.js"></script>
+
+<script>
+loadCatsList('./api/cats.json');
+</script>
+</body>
+</html>
+  

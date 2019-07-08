@@ -1,0 +1,12 @@
+{
+  "id": 4,
+  "name": "Глашка",
+  "breed": "Siamese",
+  "age": 5,
+  "sex": "female",
+  "owner": {
+    "phone": "+4333445566",
+    "name": "Говнова",
+    "city": "Челябинск"
+  }
+}

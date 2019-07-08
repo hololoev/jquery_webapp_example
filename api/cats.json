@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Барсик",
+    "breed": "Persian",
+    "age": 12,
+    "sex": "male"
+  },
+  {
+    "id": 2,
+    "name": "Васька",
+    "breed": "no",
+    "age": 2,
+    "sex": "male"
+  },
+  {
+    "id": 3,
+    "name": "Машка",
+    "breed": "Siberian",
+    "age": 3,
+    "sex": "female"
+  },
+  {
+    "id": 4,
+    "name": "Глашка",
+    "breed": "Siamese",
+    "age": 5,
+    "sex": "female"
+  }
+]

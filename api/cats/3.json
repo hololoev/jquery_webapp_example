@@ -1,0 +1,12 @@
+{
+  "id": 3,
+  "name": "Машка",
+  "breed": "Siberian",
+  "age": 3,
+  "sex": "female",
+  "owner": {
+    "phone": "+7123123123",
+    "name": "Еотова",
+    "city": "ДС2"
+  }
+}
